@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes move-gradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% auto;
+  animation: move-gradient 2s linear infinite;
+}
