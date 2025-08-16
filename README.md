@@ -126,10 +126,17 @@ const apiUrl = process.env.NEXT_PUBLIC_ONBOARD_URL;
 
 ---
 
-## Bonus Features
+## Unit Testing
 
-- Can pre-fill form from query parameters (optional)
-- Unit test for Zod schema can be added using Jest (optional)
+This project includes unit tests for the form validation schema using **Jest**. The tests verify that:
+
+- Valid form data passes validation.
+- Invalid data, such as too short full name or terms not accepted, fails validation.
+
+To run the tests:
+
+```bash
+npm run test
 
 ---
 
