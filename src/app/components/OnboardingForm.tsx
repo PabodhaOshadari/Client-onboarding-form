@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -7,7 +6,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { onboardingSchema, OnboardingFormData } from "../../../lib/schema";
 import { useState } from "react";
 
+
+// Main form component
 export default function OnboardingForm() {
+
+  console.log("Env check:", process.env.NEXT_PUBLIC_ONBOARD_URL);
+  
   const [dialogState, setDialogState] = useState<{
     visible: boolean;
     isSuccess: boolean;
@@ -20,27 +24,36 @@ export default function OnboardingForm() {
     data: null,
   });
 
+
+  // Initialize React Hook Form
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<OnboardingFormData>({
-    resolver: zodResolver(onboardingSchema),
+    resolver: zodResolver(onboardingSchema),  // Connect Zod validation
   });
 
+
+   // Submit handler
   const onSubmit = async (data: OnboardingFormData) => {
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_ONBOARD_URL;
+      
+       const apiUrl = process.env.NEXT_PUBLIC_ONBOARD_URL;
+      console.log("API URL:", apiUrl); 
+
       if (!apiUrl) {
         setDialogState({
           visible: true,
           isSuccess: false,
-          message: "API URL is not defined. Please check your .env.local file.",
+          message: "API URL is not defined.",
         });
         return;
       }
+      
 
+      // POST form data to external API
       const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -51,7 +64,7 @@ export default function OnboardingForm() {
         setDialogState({
           visible: true,
           isSuccess: true,
-          message: "Form submitted successfully! 🎉",
+          message: "Form submitted successfully! ",
           data,
         });
         reset();
@@ -59,7 +72,7 @@ export default function OnboardingForm() {
         setDialogState({
           visible: true,
           isSuccess: false,
-          message: "Something went wrong. Please try again.",
+          message: "Please try again.",
         });
       }
     } catch (error) {
