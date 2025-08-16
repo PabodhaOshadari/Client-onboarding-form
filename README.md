@@ -128,22 +128,19 @@ const apiUrl = process.env.NEXT_PUBLIC_ONBOARD_URL;
 
 ## Unit Testing
 
+
 This project includes unit tests for the form validation schema using **Jest**. The tests verify that:
 
 - Valid form data passes validation.
 - Invalid data, such as too short full name or terms not accepted, fails validation.
 
-To run the tests:
-
-```bash
-npm run test
+To run the tests: npm run test
 
 ---
 
-
 ## Project Structure
 
-
+```
 client-onboarding-form-simple/
 │
 ├─ .env.local                  # Environment variable (local, not in repo)
@@ -156,9 +153,9 @@ client-onboarding-form-simple/
 │       └─ OnboardingForm.tsx  # Form component
 ├─ lib/
 │   └─ schema.ts               # Zod validation schema
+```
 
 ---
-
 
 ## Styling
 
