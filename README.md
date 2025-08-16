@@ -143,7 +143,7 @@ npm run test
 
 ## Project Structure
 
-```
+
 client-onboarding-form-simple/
 │
 ├─ .env.local                  # Environment variable (local, not in repo)
@@ -156,7 +156,6 @@ client-onboarding-form-simple/
 │       └─ OnboardingForm.tsx  # Form component
 ├─ lib/
 │   └─ schema.ts               # Zod validation schema
-```
 
 ---
 
