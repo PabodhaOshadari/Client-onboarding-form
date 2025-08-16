@@ -140,6 +140,7 @@ npm run test
 
 ---
 
+
 ## Project Structure
 
 ```
@@ -158,6 +159,7 @@ client-onboarding-form-simple/
 ```
 
 ---
+
 
 ## Styling
 
